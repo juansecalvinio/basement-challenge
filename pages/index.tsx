@@ -10,7 +10,7 @@ import {
   Modal,
   ModalOverlay,
   useDisclosure,
-  StackDivider
+  StackDivider,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -26,7 +26,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({products}) => {
-
   const {isOpen: isModalOpen, onClose: closeModal, onOpen: openModal} = useDisclosure();
   const [cart, setCart] = React.useState<Product[]>([]);
   const total = React.useMemo(
@@ -45,7 +44,9 @@ const Home: NextPage<Props> = ({products}) => {
           padding={4}
         >
           <Image alt="Basement" src={logo} />
-          <Button variant="outline" onClick={openModal}>Cart ({cart.length})</Button>
+          <Button variant="outline" onClick={openModal}>
+            Cart ({cart.length})
+          </Button>
         </Stack>
         <Stack as="header" padding={2}>
           <Image alt="Basement" src={header} />
@@ -65,7 +66,7 @@ const Home: NextPage<Props> = ({products}) => {
             <Stack
               key={product.id}
               cursor="pointer"
-              onClick={() => setCart(cart => cart.concat(product))}
+              onClick={() => setCart((cart) => cart.concat(product))}
             >
               <Flex
                 alignItems="center"
@@ -129,17 +130,17 @@ const Home: NextPage<Props> = ({products}) => {
           <Image src={yourCart} />
           <Box paddingY={2}>
             {cart.map((product, index) => (
-              <Stack 
-                key={index} 
-                color="white" 
+              <Stack
+                key={index}
+                color="white"
                 cursor="pointer"
-                fontFamily={"Basement Grotesque"} 
-                fontWeight="bold" 
-                direction="row" 
-                fontSize="xl" 
-                alignItems="center" 
+                fontFamily={"Basement Grotesque"}
+                fontWeight="bold"
+                direction="row"
+                fontSize="xl"
+                alignItems="center"
                 justifyContent="space-between"
-                paddingX={4} 
+                paddingX={4}
                 onClick={() => setCart((cart) => cart.filter((_, _index) => index !== _index))}
               >
                 <Text>{product.name}</Text>
@@ -177,7 +178,8 @@ const Home: NextPage<Props> = ({products}) => {
 };
 
 export const getStaticProps: GetStaticProps<Props, any> = async () => {
-  const products: Product[] = await import('../product/mock.json').then((res) => res.default);
+  const products: Product[] = await import("../product/mock.json").then((res) => res.default);
+
   return {
     props: {
       products,
