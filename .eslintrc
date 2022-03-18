@@ -70,6 +70,8 @@
       {"blankLine": "always", "prev": "*", "next": "return"},
       {"blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
       {"blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
-    ]
+    ],
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   }
 }
