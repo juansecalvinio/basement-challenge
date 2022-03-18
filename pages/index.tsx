@@ -75,7 +75,7 @@ const Home: NextPage<Props> = ({products}) => {
                 margin="auto"
                 width="100%"
               >
-                <Box _hover={{ transform: "scale(1.1)" }} transition="all 0.3s">
+                <Box _hover={{transform: "scale(1.1)"}} transition="all 0.3s">
                   <Image
                     src={product.image}
                     alt={product.name}
