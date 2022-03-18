@@ -75,7 +75,10 @@ const Home: NextPage<Props> = ({products}) => {
                 margin="auto"
                 width="100%"
               >
-                <Box>
+                <Box 
+                  _hover={{ transform: "scale(1.1)" }}
+                  transition="all 0.3s"
+                >
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -124,6 +127,7 @@ const Home: NextPage<Props> = ({products}) => {
             variant="link"
             paddingX={4}
             paddingY={2}
+            onClick={closeModal}
           >
             Close
           </Button>
